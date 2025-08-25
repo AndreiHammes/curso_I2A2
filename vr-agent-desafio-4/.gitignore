@@ -1,0 +1,15 @@
+# Python virtual environment
+.venv/
+
+# Python bytecode cache
+__pycache__/
+
+# Temporary or extracted files
+unzipped/
+
+# Data files
+*.csv
+*.xlsx
+
+# Environment variables (never commit secrets)
+.env
