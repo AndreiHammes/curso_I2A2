@@ -110,8 +110,9 @@ sql_prompt = ChatPromptTemplate.from_messages([
      "ESTADO_SINDICATO_SIGLA\n"
      "Admissão\n"
      "TITULO DO CARGO\n"
-     "Lembre-se: no **DuckDB/Postgres**, se sua coluna tem espaços ou acentos, você precisa **usar aspas duplas** para a coluna na query\n"
-     "Se solicitarem a tabela de um profissional específico, não filtrar a coluna TÍTULO DO CARGO diretamente, mas ver se a coluna contém a palavra chave da profissão descrita em caixa alta"
+     "Lembre-se: no **DuckDB/Postgres**, se sua coluna tem espaços ou acentos, você precisa **usar aspas duplas** para a coluna na query, lembrar que matrícula vai sempre com as aspas\n"
+     "Se solicitarem a tabela de um profissional específico, não filtrar a coluna TÍTULO DO CARGO diretamente, mas ver se a coluna contém a palavra chave da profissão descrita em caixa alta\n"
+     "Gere a query SQL crua, sem usar ```sql"
     ),
     ("human", "{input}")
 ])
@@ -123,10 +124,10 @@ def gerar_query(texto: str) -> str:
     return raw.strip()
 
 # --- Execução do sistema ---
-print("Bem-vindo ao sistema gerador da tabela de compra do Vale Refeição!")
+print("Bem-vindo ao sistema gerador do arquivo de compra do Vale Refeição!")
 entrada = input(
-    "Como deseja proceder? (ex.: 'sim, gere para agosto 2024', 'não quero rodar agora'):\n"
-    "Evite especificar o mês de análise como 'mês atual', 'mês passado' etc. O modelo vai puxar a data mais recente de seu último treinamento.\n"
+    "Como deseja proceder? (ex.: 'gere o arquivo para agosto 2024', 'não quero rodar agora'):\n"
+    "(obs: Evite especificar o mês de análise como 'mês atual', 'mês passado' etc. O modelo vai puxar a data mais recente de seu último treinamento).\n"
     ">"
 )
 
@@ -175,7 +176,10 @@ if decisao["trigger"]:
             # Carrega os arquivos .csv da pasta unzipped_data no banco
             load_pandas_df_into_duckdb(raw_duckdb_conn, tabela_final)
 
-            pergunta = input("\nDigite sua consulta (ou 'sair' para encerrar):\n> ")
+            pergunta = input(
+                "\nVocê quer a tabela completa ou quer filtrar por algum estado/cargo profissional?\n"
+                ">"
+            )
             query = gerar_query(pergunta)
             print(f"\n📜 Query gerada:\n{query}\n")
 
