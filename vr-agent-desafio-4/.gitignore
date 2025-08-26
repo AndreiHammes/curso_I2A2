@@ -10,6 +10,7 @@ unzipped/
 # Data files
 *.csv
 *.xlsx
+*.duckdb
 
 # Environment variables (never commit secrets)
 .env
