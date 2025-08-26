@@ -1,7 +1,8 @@
 # 🤖 Projeto: Execução de Agente com LangChain + Claude
 
-Este projeto utiliza Python 3.11.3 para executar um agente que gera queries SQL e interpreta resultados usando LLMs.  
+Este projeto utiliza Python 3.11.3 para executar um agente que gera uma tabela de compra de vale refeição de maneira automática.  
 Você pode executar tudo localmente a partir de qualquer prompt de comando (Windows, macOS ou Linux), incluindo o terminal do VS Code.
+Esse é um exercício parte do curso de agentes inteligentes do Instituto I2A2.
 
 ---
 
