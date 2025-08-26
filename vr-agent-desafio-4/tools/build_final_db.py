@@ -177,7 +177,8 @@ def read_treat_and_aggregate_data(
         [
             "MATRICULA", "Sindicato", "Competência", "DIAS_VALIDOS", 
             "VALOR_SINDICATO", "TOTAL", "Custo empresa", 
-            "Desconto profissional", "ESTADO_SINDICATO_SIGLA"
+            "Desconto profissional", "ESTADO_SINDICATO_SIGLA",
+            "DATA DEMISSÃO", "DATA_DE_ADMISSAO", "TITULO DO CARGO"
         ]
     ].copy()
 
